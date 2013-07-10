@@ -17,7 +17,7 @@ A super simple ruby like class system with class and instance inheritance.
 
         this.initialize = function(name){
           this.name = name
-          Animal.prototype.initialize.apply(this);
+          this.super('initialize').apply(this);
         };
 
       });
