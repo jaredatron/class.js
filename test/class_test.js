@@ -1,33 +1,81 @@
 Class  = require('../class.js');
-expect = require("expect.js");
+expect = require('expect.js');
+i      = require('util').inspect;
 
 expect.Assertion.prototype.aSubclassOf = function(superclass){
   function constructor() {};
   constructor.prototype = superclass;
   this.assert(
     this.obj instanceof constructor,
-    function(){ return 'expected ' + expect.i(this.obj) + ' to be a subclass of ' + expect.i(superclass) },
-    function(){ return 'expected ' + expect.i(this.obj) + ' to not be a subclass of ' + expect.i(superclass) }
+    function(){ return 'expected ' + i(this.obj) + ' to be a subclass of ' + i(superclass) },
+    function(){ return 'expected ' + i(this.obj) + ' to not be a subclass of ' + i(superclass) }
   );
   return this;
-}
+};
 
 expect.Assertion.prototype.anInstanceOf = function(_class){
   function constructor() {};
   constructor.prototype = _class.prototype;
   this.assert(
     this.obj instanceof constructor,
-    function(){ return 'expected ' + expect.i(this.obj) + ' to be an instance of ' + expect.i(_class) },
-    function(){ return 'expected ' + expect.i(this.obj) + ' to not be an instance of ' + expect.i(_class) }
+    function(){ return 'expected ' + i(this.obj) + ' to be an instance of ' + i(_class) },
+    function(){ return 'expected ' + i(this.obj) + ' to not be an instance of ' + i(_class) }
   );
   return this;
-}
+};
+
+expect.Assertion.prototype.aDelgateFor = function(prototype){
+  function constructor() {};
+  constructor.prototype = prototype;
+  this.assert(
+    this.obj instanceof constructor,
+    function(){ return 'expected ' + i(this.obj) + ' to be a delegate for ' + i(prototype) },
+    function(){ return 'expected ' + i(this.obj) + ' to not be a delegate for ' + i(prototype) }
+  );
+  return this;
+};
 
 
 describe("Class", function(){
 
   it("should be an object", function(){
     expect(Class).to.be.a('object');
+  });
+
+  describe(".instantiate", function(){
+    it("should return an object that delegates to Class", function() {
+      expect(Class.instantiate()).to.be.aDelgateFor(Class);
+    });
+  });
+
+  describe(".extend", function(){
+
+    it("should extend its self with the properties of the given objects", function(){
+      Class.extend({_a:'a'}, {_b:'b'}, {_a:'A'}, mixin);
+      expect(Class._a).to.eql('A');
+      expect(Class._b).to.eql('b');
+      expect(Class._c).to.eql('c');
+      expect(Class._d).to.eql('d');
+      expect(Class._e).to.eql('e');
+
+      function mixin(a1,a2) {
+        this._c = 'c';
+        a1._d = 'd';
+        a2._e = 'e';
+      }
+    });
+
+  });
+
+  describe(".isA", function(){
+    it("should detect if the object is an instance of the given class", function() {
+      var Cat = Class.new();
+      var Dog = Class.new();
+      var fluffy = Cat.new();
+      expect( Cat.isA(Class)  ).to.be(true);
+      expect( fluffy.isA(Cat) ).to.be(true);
+      expect( fluffy.isA(Dog) ).to.be(false);
+    });
   });
 
   describe(".new", function(){
@@ -41,14 +89,13 @@ describe("Class", function(){
 
   });
 
-  // describe(".extend", function(){
+  describe(".subclass", function(){
+    it("should return a subclass");
+  });
 
-  //   it("should be a function", function(){
-  //     expect(Class.extend).to.beA('function');
-  //   });
-
-  // });
-
+  describe(".super", function(){
+    it("should be fucking magic!");
+  });
 
 });
 

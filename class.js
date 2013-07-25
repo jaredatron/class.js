@@ -9,7 +9,7 @@ Class = {
 
   extend: function(){
     var i, p, mixin;
-    for (i = arguments.length - 1; i >= 0; i--) {
+    for (var i = 0; i < arguments.length; i++) {
       mixin = arguments[i];
       if (typeof mixin === 'function')
         mixin.call(this, this.class || this, this);
