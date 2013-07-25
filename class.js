@@ -107,27 +107,4 @@ Class.new = function(definition){
 
 
 
-
-  var A = Class.new( {classname:'A'});
-  var B = A.subclass({classname:'B'});
-  var C = B.subclass({classname:'C'});
-  var D = C.subclass({classname:'D'});
-  var E = D.subclass({classname:'E'});
-  var F = E.subclass({classname:'F'});
-  var G = F.subclass({classname:'G'});
-  var H = G.subclass({classname:'H'});
-
-  function open1() {
-    return 'open1 ';
-  }
-  function open2() {
-    return 'open2 ' + this.super('open', arguments);
-  }
-  function open3() {
-    return 'open3 ' + this.super('open', arguments) + this.super('open', arguments) + this.super('open', arguments);
-  }
-
-  A.prototype.open = open1;
-  C.prototype.open = open2;
-  E.prototype.open = open3;
-  G.prototype.open = open2;
+if (exports) exports.Class = Class;
