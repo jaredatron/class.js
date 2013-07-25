@@ -39,3 +39,11 @@ var sparky = Dog.new('sparky');
 
 var mitten = Cat.new('mitten');
 ```
+
+## Tests
+
+```bash
+npm install mocha
+npm install expect.js
+mocha -R list
+```
