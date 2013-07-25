@@ -104,7 +104,5 @@ Class.new = function(definition){
   return Class.prototype.subclass(definition);
 };
 
-
-
-
-if (exports) exports.Class = Class;
+if (typeof module  !== 'undefined') module.exports = Class;
+if (typeof exports !== 'undefined') exports = Class;

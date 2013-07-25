@@ -1,4 +1,4 @@
-Class  = require('../class.js').Class
+Class  = require('../class.js');
 expect = require("expect.js");
 
 expect.Assertion.prototype.aSubclassOf = function(superclass){
