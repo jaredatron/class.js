@@ -101,7 +101,7 @@ describe("Class", function(){
 
 describe("inheritance", function() {
 
-  it("should work", function(){
+  it("", function(){
 
     var Animal = Class.new();
     var Mammal = Animal.subclass();
@@ -202,7 +202,7 @@ describe("inheritance", function() {
 
 describe("super", function(){
 
-  it("shoudl work", function() {
+  it("", function() {
 
     var A = Class.new( {classname:'A'});
     var B = A.subclass({classname:'B'});
