@@ -1,0 +1,28 @@
+{
+  "name": "Class.js",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "Jared Grippe <jared@deadlyicon.com>",
+  "description": "A simple yet powerful Ruby-lick Class inheritance system",
+  "main": "Class.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deadlyicon/Class.js.git"
+  },
+  "keywords": [
+    "class",
+    "Class",
+    "Constructor",
+    "prototype",
+    "inheritance"
+  ],
+  "analyze": false,
+  "devDependencies": {
+    "mocha": "*",
+    "expect.js": "*"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
