@@ -102,7 +102,7 @@ When you call `Animal.subclass()` it returns a new object that points to `Animal
 
 A Module can either be a plain object or a function.
 
-``
+```javascript
 var Car = Class.new(function(){
   this.initialize = this.extend;
 });
@@ -137,6 +137,7 @@ Car.include(HasEngine, PersistedWithLocalStorage);
 typeof Car.find //= 'function'
 typeof Car.new().save //= 'function'
 typeof Car.new().engine //= 'function'
+```
 
 ## Tests
 
