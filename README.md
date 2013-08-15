@@ -96,6 +96,46 @@ Kitten.new().age; //= 12
 
 When you call `Animal.subclass()` it returns a new object that points to `Animal`. The new object's prototype property is also a new object that points to `Animal.prototype`.
 
+## modules
+
+A Module can either be a plain object or a function.
+
+``
+var Car = Class.new(function(){
+  this.initialize = this.extend;
+});
+
+var HasEngine = {
+  engine: function(){
+    if (!this._engine) this._engine = Engine.new(this);
+    return this._engine;
+  }
+};
+
+var PersistedWithLocalStorage = function(){
+
+  function save(){
+    // localStorage[…] = …;
+    return this;
+  }
+
+  function find(id){
+    // return this.new(localStorage[…]);
+  }
+
+  return function(){
+    this.class.find = find;
+    this.save = save;
+  };
+
+}();
+
+Car.include(HasEngine, PersistedWithLocalStorage);
+
+typeof Car.find //= 'function'
+typeof Car.new().save //= 'function'
+typeof Car.new().engine //= 'function'
+
 ## Tests
 
 ```bash
