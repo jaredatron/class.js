@@ -1,7 +1,7 @@
 {
   "name": "class",
   "preferGlobal": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Jared Grippe <jared@deadlyicon.com>",
   "description": "A simple yet powerful Ruby-like Class inheritance system",
   "main": "class.js",

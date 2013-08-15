@@ -41,11 +41,11 @@ var Quadruped = Mammal.subclass({
 
 Quadruped.include(HasLegs);
 
-var Dingo = Biped.subclass();
+var Kangaroo = Biped.subclass();
 
 var Dog = Quadruped.subclass();
 
-var jumpy = Dingo.new({name:'Jumpy'});
+var jumpy = Kangaroo.new({name:'Jumpy'});
 jumpy.walk(10,'north');
 
 var sparky = Dog.find(12);
