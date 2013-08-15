@@ -46,8 +46,4 @@ Class.prototype = Class.Object.instantiate({
 
 });
 
-if (typeof module !== 'undefined'){
-  module.exports = Class;
-}else{
-  this.Class = Class;
-}
+if (typeof module !== 'undefined') module.exports = Class;
