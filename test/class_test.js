@@ -1,4 +1,4 @@
-var Class  = require('../Class.js');
+var Class  = require('../class.js');
 var expect = require('expect.js');
 var i      = require('util').inspect;
 var isPrototypeOf = Object.prototype.isPrototypeOf || function(object) {
