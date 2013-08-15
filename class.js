@@ -37,9 +37,15 @@ Class.prototype = Class.Object.instantiate({
   subclass: function(definition) {
     var _class = this.instantiate();
     _class.superclass = this;
-    _class.prototype = this.prototype.instantiate(definition);
+    _class.prototype = this.prototype.instantiate();
     _class.prototype.class = _class;
+    _class.prototype.extend(definition);
     return _class;
+  },
+
+  include: function(){
+    this.prototype.extend.apply(this.prototype, arguments);
+    return this;
   },
 
   prototype: Class.Object.instantiate()
