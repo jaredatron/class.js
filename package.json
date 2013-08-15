@@ -23,7 +23,8 @@
   "analyze": false,
   "devDependencies": {
     "mocha": "*",
-    "expect.js": "*"
+    "expect.js": "*",
+    "object-inspect": "*"
   },
   "license": "MIT",
   "engines": {
