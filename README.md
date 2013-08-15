@@ -3,6 +3,8 @@ class.js
 
 A super small ruby-ish class system with both class and class instance  inheritance.
 
+[![Build Status](https://travis-ci.org/deadlyicon/class.js.png)](https://travis-ci.org/deadlyicon/class.js)
+
 ## Example usage:
 
 ```javascript
